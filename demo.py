@@ -54,7 +54,6 @@ config_path = hf_hub_download("orkungedik/tr-kvkk-classifier", "config.json")
 with open(vocab_path)  as f: char2idx = json.load(f)
 with open(config_path) as f: config   = json.load(f)
 
-# Model yükle (CharViT sınıfının tanımlı olduğunu varsayar)
 model = CharViT(**{k: config[k] for k in
     ["vocab_size","embed_dim","max_len","n_heads","n_layers","num_classes"]})
 model.load_state_dict(load_file(model_path))
